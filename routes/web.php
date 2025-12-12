@@ -20,6 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@Home');
 
-Route::get('/sobre-nos', 'SobrenosController@sobrenos');
+Route::get('/sobre-nos', 'SobrenosController@sobreNos');
 
 Route::get('/contato', 'ContatoController@contato');
