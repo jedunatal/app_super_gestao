@@ -26,6 +26,17 @@ Route::get('/contato', 'ContatoController@contato');
 
 //nome, categoria, assunto e mensagem
 
-Route::get('/contato/{nome}/{categoria}/{assunto}/{mensagem}', function (String $nome, String $categoria, String $assunto, String $mensagem){
-    echo 'Estamos aqui: '.$nome.' '.$categoria.' '.$assunto.' '.$mensagem;
-});
+//Parâmetros opcionais quando é colocado "?" ou seja não precisa de uma string específica.
+//Sem "?" aparece o nome da variavel
+
+Route::get(
+    '/contato/{nome?}/{categoria?}/{assunto?}/{mensagem?}',
+        function (
+            String $nome,
+            String $categoria,
+            String $assunto,
+            String $mensagem = 'Mensagem não informada' //Adicionamos um valor padrão, caso ele seja enviado pela requisição feita pelo cliente
+        ) {
+            echo 'Estamos aqui: '.$nome.' '.$categoria.' '.$assunto.' '.$mensagem;
+        }
+);
