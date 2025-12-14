@@ -24,17 +24,7 @@ Route::get('/sobre-nos', 'SobrenosController@sobreNos');
 
 Route::get('/contato', 'ContatoController@contato');
 
-//nome, categoria, assunto e mensagem
-
-//Parâmetros opcionais quando é colocado "?" ou seja não precisa de uma string específica.
-//Sem "?" aparece o nome da variavel
-
-Route::get(
-    '/contato/{nome}/{categoria_id}',
-        function(
-            String $nome = 'Desconhecido',
-            Int $categoria_id = 1 // 1 - *Informação*
-        ) {
-            echo "Estamos aqui: .$nome - $categoria_id";
-        }
-    )->where('categoria_id','[0-9]+')->where('nome', '[A-Za-z]+');
+Route::get('/login', function(){ return 'Login'; });
+Route::get('/clientes', function(){ return 'Clientes'; });
+Route::get('/fornecedores', function(){ return 'Fornecedores'; });
+Route::get('/produtos', function(){ return 'Produtos'; });
