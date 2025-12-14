@@ -30,13 +30,11 @@ Route::get('/contato', 'ContatoController@contato');
 //Sem "?" aparece o nome da variavel
 
 Route::get(
-    '/contato/{nome?}/{categoria?}/{assunto?}/{mensagem?}',
-        function (
-            String $nome,
-            String $categoria,
-            String $assunto,
-            String $mensagem = 'Mensagem não informada' //Adicionamos um valor padrão, caso ele seja enviado pela requisição feita pelo cliente
+    '/contato/{nome}/{categoria_id}',
+        function(
+            String $nome = 'Desconhecido',
+            Int $categoria_id = 1 // 1 - *Informação*
         ) {
-            echo 'Estamos aqui: '.$nome.' '.$categoria.' '.$assunto.' '.$mensagem;
+            echo "Estamos aqui: .$nome - $categoria_id";
         }
-);
+    )->where('categoria_id','[0-9]+')->where('nome', '[A-Za-z]+');
